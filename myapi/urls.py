@@ -1,5 +1,5 @@
 from django.urls import path,include
-from .views import upload_image, list_images, upload_video, list_videos, RegisterView, LoginView, logout
+from .views import upload_image, list_images, upload_video, list_videos, RegisterView, LoginView, logout, get_csrf_token
 
 # urlpatterns = [
 #     path('upload/', upload_image,include('rest_framework.urls'), name='upload-image'),
@@ -15,9 +15,10 @@ urlpatterns = [
     path('list-image/', list_images, name='list-images'),
     path('upload-video/', upload_video, name='upload-video'),
     path('list-videos/', list_videos, name='list-videos'),
-    path('register/', RegisterView.as_view(), name='register'),
+    path('register/', RegisterView.as_view(), name='auth_register'),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', logout, name='logout'),
+    path('get-csrf-token/', get_csrf_token, name='get_csrf_token'),
 
 ]
 

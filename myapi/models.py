@@ -22,6 +22,7 @@ class Image(models.Model):
     # location = models.CharField(max_length=100)
     date_uploaded = models.DateTimeField(auto_now_add=True)
 
+
 class Video(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
