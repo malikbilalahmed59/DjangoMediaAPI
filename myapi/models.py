@@ -18,8 +18,9 @@ class Image(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='images/')
-    # type = models.CharField(max_length=50)
-    # location = models.CharField(max_length=100)
+    byte = models.CharField(max_length=50,null=True)
+    size = models.CharField(max_length=100,null=True)
+    extention = models.CharField(max_length=100,null=True)
     date_uploaded = models.DateTimeField(auto_now_add=True)
 
 
@@ -27,6 +28,7 @@ class Video(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     video = models.FileField(upload_to='videos/')
-    # type = models.CharField(max_length=50)
-    # location = models.CharField(max_length=100)
+    byte = models.CharField(max_length=50,null=True)
+    size = models.CharField(max_length=100,null=True)
+    extention = models.CharField(max_length=100,null=True)
     date_uploaded = models.DateTimeField(auto_now_add=True)
