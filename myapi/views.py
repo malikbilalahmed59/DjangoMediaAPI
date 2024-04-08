@@ -79,6 +79,8 @@ def list_images(request):
 #
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
+@authentication_classes([TokenAuthentication])
 def list_videos(request):
     videos = Video.objects.filter(user=request.user)
     serializer = VideoSerializer(videos, many=True)
