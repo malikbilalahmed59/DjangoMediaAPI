@@ -11,7 +11,7 @@ from .views import upload_image, list_images, upload_video, list_videos, Registe
 
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
-from .views import upload_image, list_images
+from .views import upload_image, list_images, serve_media
 from django.conf.urls.static import static
 urlpatterns = [
     path('upload-image/', upload_image, name='upload-image'),
@@ -26,4 +26,4 @@ urlpatterns = [
 
     ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-urlpatterns = format_suffix_patterns(urlpatterns)
+#urlpatterns = format_suffix_patterns(urlpatterns)
