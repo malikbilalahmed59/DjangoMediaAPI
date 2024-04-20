@@ -1,7 +1,8 @@
 from django.urls import path,include
 
 from ApiProject import settings
-from .views import upload_image, list_images, upload_video, list_videos, RegisterView, LoginView, logout, get_csrf_token
+from .views import upload_image, list_images, upload_video, list_videos, RegisterView, LoginView, logout, \
+    get_csrf_token, serve_media
 
 # urlpatterns = [
 #     path('upload/', upload_image,include('rest_framework.urls'), name='upload-image'),
@@ -21,7 +22,8 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', logout, name='logout'),
     path('get-csrf-token/', get_csrf_token, name='get_csrf_token'),
+    path('media/<path:file_path>/', serve_media, name='serve_media'),
 
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns = format_suffix_patterns(urlpatterns)
